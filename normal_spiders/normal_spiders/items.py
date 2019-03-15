@@ -12,3 +12,10 @@ class NormalSpidersItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
+
+
+class BankCrawlResultItem(scrapy.Item):
+    crawl_time = scrapy.Field()
+    bank_name = scrapy.Field()
+    source_url = scrapy.Field()
+    response = scrapy.Field()

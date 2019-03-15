@@ -1,0 +1,1 @@
+C:\Users\daipengfei\AppData\Local\Continuum\anaconda3\Scripts\activate crawler
