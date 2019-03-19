@@ -1,4 +1,11 @@
-# scrapy
-本工程基于scrapy框架，主要包含几种平常使用到的数据爬取需求。
-## koodous-crawl
-爬取Koodous App，主要是恶意样本。
+# normal_spiders
+本工程目的在于构建一个较为通用的基于scrapy的爬虫工程，利用celery进行爬虫爬取调度。
+
+## celery_tasks.py
+爬虫调度入口文件，该文件中注释说明了如何启动与关闭，主要调度celery_task_list模块中的任务。
+
+## celery_task_list
+该模块中每个文件实现了一种celery任务，爬虫任务或者其他任务都可以。
+
+## normal_spiders
+爬虫工程具体实现部分。
