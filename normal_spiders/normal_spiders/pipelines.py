@@ -31,3 +31,24 @@ class BankCrawlResultPipeline(object):
     def process_item(self, item, spider):
         self.insert_bank_crawl_result(item)
         return item
+
+
+class FundInfoCrawlPipeline(object):
+    def insert_fund_info(self, item):
+        session = db.DBSession()
+
+        new_fund_info = db.FundInfo()
+        new_fund_info.fund_name = item['fund_name']
+        new_fund_info.fund_code = item['fund_code']
+        new_fund_info.time = item['time']
+        new_fund_info.IOPV = item['IOPV']
+        new_fund_info.LJJZ = item['LJJZ']
+
+        session.add(new_fund_info)
+        session.commit()
+        session.close()
+        return
+
+    def process_item(self, item, spider):
+        self.insert_fund_info(item)
+        return item

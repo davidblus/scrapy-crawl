@@ -19,3 +19,11 @@ class BankCrawlResultItem(scrapy.Item):
     bank_name = scrapy.Field()
     source_url = scrapy.Field()
     response = scrapy.Field()
+
+
+class FundInfoItem(scrapy.Item):
+    fund_name = scrapy.Field()
+    fund_code = scrapy.Field()
+    time = scrapy.Field()
+    IOPV = scrapy.Field()
+    LJJZ = scrapy.Field()

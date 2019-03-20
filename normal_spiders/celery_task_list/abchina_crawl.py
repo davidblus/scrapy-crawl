@@ -16,4 +16,4 @@ def scrapy_crawl_abchina():
         'LOG_FILE': 'logs/spider/abchina/{date}.log'.format(date=date_str),
         'LOG_LEVEL': 'DEBUG',
     }
-    run_spider(AbchinaSpider, settings)
+    run_spider(AbchinaSpider, settings, None)

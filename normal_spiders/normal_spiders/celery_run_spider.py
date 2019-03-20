@@ -8,12 +8,15 @@ from twisted.internet import reactor
 
 
 # the wrapper to make it run more times
-def run_spider(spider, settings):
+def run_spider(spider, settings, kwargs=None):
     def f(q):
         try:
             configure_logging(settings)
             runner = CrawlerRunner()
-            deferred = runner.crawl(spider)
+            if kwargs is not None:
+                deferred = runner.crawl(spider, **kwargs)
+            else:
+                deferred = runner.crawl(spider)
             deferred.addBoth(lambda _: reactor.stop())
             reactor.run()
             q.put(None)

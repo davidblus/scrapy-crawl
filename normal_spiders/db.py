@@ -48,6 +48,18 @@ class BankInfo(Base):
     rmb_gold_update_beijing_time = Column(DateTime)
 
 
+# 定义 FundInfo 对象：
+class FundInfo(Base):
+    __tablename__ = 'fund_info'
+
+    id = Column(BigInteger, primary_key=True)
+    fund_name = Column(String)
+    fund_code = Column(String)
+    time = Column(Date)
+    IOPV = Column(DECIMAL)
+    LJJZ = Column(DECIMAL)
+
+
 # 初始化数据库连接:
 engine = create_engine('mysql+pymysql://davidblus:davidblus@localhost:3306/interest?charset=utf8', encoding='utf-8')
 # 创建DBSession类型:
