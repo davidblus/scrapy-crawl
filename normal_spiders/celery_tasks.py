@@ -39,9 +39,16 @@ celery_app.conf.beat_schedule = {
         # 'schedule': crontab(minute='11', hour='8-22', day_of_week='2-6'),
         'args': ()
     },
+    'scrapy-crawl-cmfchina-crontab': {
+        'task': 'celery_task_list.cmfchina_crawl.scrapy_crawl_cmfchina',
+        'schedule': crontab(minute='10', hour='9', day_of_week='2-6'),
+        # 'schedule': crontab(minute='44', hour='8-22', day_of_week='2-6'),
+        'args': ()
+    },
 }
 
 # from celery_task_list.test import add
 from celery_task_list.abchina_crawl import scrapy_crawl_abchina
 from celery_task_list.bank_response_to_info import bank_response_to_info
 from celery_task_list.yhfund_crawl import scrapy_crawl_yhfund
+from celery_task_list.cmfchina_crawl import scrapy_crawl_cmfchina
