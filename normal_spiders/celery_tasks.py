@@ -21,6 +21,12 @@ celery_app.conf.beat_schedule = {
     #     'schedule': timedelta(seconds=10),
     #     'args': (16, 16)
     # },
+    'gc-every-day': {
+        'task': 'celery_task_list.gc.collect',
+        'schedule': crontab(minute='3', hour='0'),
+        # 'schedule': crontab(minute='*', hour='*'),
+        'args': ()
+    },
     'scrapy-crawl-abchina-crontab': {
         'task': 'celery_task_list.abchina_crawl.scrapy_crawl_abchina',
         'schedule': crontab(minute='3', hour='8-22', day_of_week='mon-fri'),
@@ -48,6 +54,7 @@ celery_app.conf.beat_schedule = {
 }
 
 # from celery_task_list.test import add
+from celery_task_list.gc import collect
 from celery_task_list.abchina_crawl import scrapy_crawl_abchina
 from celery_task_list.bank_response_to_info import bank_response_to_info
 from celery_task_list.yhfund_crawl import scrapy_crawl_yhfund
