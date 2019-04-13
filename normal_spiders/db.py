@@ -62,6 +62,23 @@ class FundInfo(Base):
     LJJZ = Column(DECIMAL)
 
 
+# 定义 WeiboStarsInfo 对象：
+class WeiboStarsInfo(Base):
+    __tablename__ = 'weibo_stars_info'
+
+    id = Column(BigInteger, primary_key=True)
+    star_name = Column(String)
+    att_name = Column(String)
+    UID = Column(BigInteger)
+    CMSid = Column(Integer)
+    add_V_type = Column(Integer)
+    star_level = Column(Integer)
+    weibo_id = Column(BigInteger)
+    toutiao_id = Column(Integer)
+    identify_type = Column(Integer)
+    field = Column(Integer)
+
+
 # 初始化数据库连接:
 engine = create_engine(MYSQL_URL, encoding='utf-8')
 # 创建DBSession类型:

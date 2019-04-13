@@ -27,3 +27,7 @@ class FundInfoItem(scrapy.Item):
     time = scrapy.Field()
     IOPV = scrapy.Field()
     LJJZ = scrapy.Field()
+
+
+class WeiboStarsInfoItem(scrapy.Item):
+    result = scrapy.Field()
