@@ -22,6 +22,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import sessionmaker
 
+from db_config import MYSQL_URL
+
 # 创建对象的基类:
 Base = declarative_base()
 
@@ -61,7 +63,7 @@ class FundInfo(Base):
 
 
 # 初始化数据库连接:
-engine = create_engine('mysql+pymysql://davidblus:davidblus@localhost:3306/interest?charset=utf8', encoding='utf-8')
+engine = create_engine(MYSQL_URL, encoding='utf-8')
 # 创建DBSession类型:
 DBSession = sessionmaker(bind=engine)
 
