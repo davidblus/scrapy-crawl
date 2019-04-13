@@ -51,6 +51,12 @@ celery_app.conf.beat_schedule = {
         # 'schedule': crontab(minute='44', hour='8-22', day_of_week='2-6'),
         'args': ()
     },
+    'scrapy-crawl-weibo-stars-info-crontab': {
+        'task': 'celery_task_list.weibo_stars_info_crawl.scrapy_crawl_weibo_stars_info',
+        # 'schedule': timedelta(minutes=10),
+        'schedule': crontab(minute='31', hour='10'),
+        'args': ()
+    },
 }
 
 # from celery_task_list.test import add
@@ -59,3 +65,4 @@ from celery_task_list.abchina_crawl import scrapy_crawl_abchina
 from celery_task_list.bank_response_to_info import bank_response_to_info
 from celery_task_list.yhfund_crawl import scrapy_crawl_yhfund
 from celery_task_list.cmfchina_crawl import scrapy_crawl_cmfchina
+from celery_task_list.weibo_stars_info_crawl import scrapy_crawl_weibo_stars_info

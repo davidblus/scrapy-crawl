@@ -19,7 +19,7 @@ class WeiboStarsSpider(scrapy.Spider):
         "DOWNLOADER_MIDDLEWARES": {
             "scrapy.downloadermiddlewares.useragent.UserAgentMiddleware": None,
             "normal_spiders.middlewares.RotateUserAgentMiddleware": 400,
-            "normal_spiders.middlewares.ProxyMiddleware": 500,
+            # "normal_spiders.middlewares.ProxyMiddleware": 500,
         },
         "ITEM_PIPELINES": {
             # "normal_spiders.pipelines.FundInfoCrawlPipeline": 300,
@@ -45,7 +45,7 @@ class WeiboStarsSpider(scrapy.Spider):
         session = db.DBSession()
         weibo_stars_info_list = session.query(db.WeiboStarsInfo).filter(db.WeiboStarsInfo.weibo_id != 0).all()
         # Todo: Testing
-        for weibo_stars_info in weibo_stars_info_list[:40]:
+        for weibo_stars_info in weibo_stars_info_list[:200]:
         # for weibo_stars_info in weibo_stars_info_list:
             weibo_id = weibo_stars_info.weibo_id
             url = self.weibo_user_home_url.format(weibo_id=weibo_id)
