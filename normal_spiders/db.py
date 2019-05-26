@@ -22,6 +22,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import sessionmaker
 
+from db_config import MYSQL_URL
+
 # 创建对象的基类:
 Base = declarative_base()
 
@@ -60,8 +62,25 @@ class FundInfo(Base):
     LJJZ = Column(DECIMAL)
 
 
+# 定义 WeiboStarsInfo 对象：
+class WeiboStarsInfo(Base):
+    __tablename__ = 'weibo_stars_info'
+
+    id = Column(BigInteger, primary_key=True)
+    star_name = Column(String)
+    att_name = Column(String)
+    UID = Column(BigInteger)
+    CMSid = Column(Integer)
+    add_V_type = Column(Integer)
+    star_level = Column(Integer)
+    weibo_id = Column(BigInteger)
+    toutiao_id = Column(Integer)
+    identify_type = Column(Integer)
+    field = Column(Integer)
+
+
 # 初始化数据库连接:
-engine = create_engine('mysql+pymysql://davidblus:davidblus@localhost:3306/interest?charset=utf8', encoding='utf-8')
+engine = create_engine(MYSQL_URL, encoding='utf-8')
 # 创建DBSession类型:
 DBSession = sessionmaker(bind=engine)
 
