@@ -30,7 +30,6 @@ celery_app.conf.beat_schedule = {
     'scrapy-crawl-abchina-crontab': {
         'task': 'celery_task_list.abchina_crawl.scrapy_crawl_abchina',
         'schedule': crontab(minute='3', hour='8-22', day_of_week='mon-fri'),
-        # 'schedule': crontab(minute='10', hour='8-22', day_of_week='mon-fri'),
         'args': ()
     },
     'bank-response-to-info-crontab': {

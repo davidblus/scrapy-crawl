@@ -11,7 +11,7 @@ from twisted.internet import reactor
 def run_spider(spider, settings, kwargs=None):
     def f(q):
         try:
-            configure_logging(settings)
+            # configure_logging(settings)
             runner = CrawlerRunner()
             if kwargs is not None:
                 deferred = runner.crawl(spider, **kwargs)
