@@ -9,7 +9,7 @@
 数据库连接配置
 """
 
-MYSQL_HOST = 'localhost'
+MYSQL_HOST = 'database-1.c7qylssqavie.ap-northeast-1.rds.amazonaws.com'
 MYSQL_PORT = '3306'
 MYSQL_USER = 'davidblus'
 MYSQL_PASSWORD = 'davidblus'
