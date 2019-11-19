@@ -21,7 +21,7 @@ def scrapy_crawl_weibo_stars_info():
     logger.info('scrapy_crawl_weibo_stars_info()')
     date_str = str(datetime.now().date())
     settings = {
-        'LOG_FILE': 'logs/spider/weibo_stars/{date}.log'.format(date=date_str),
-        'LOG_LEVEL': 'DEBUG',
+        # 'LOG_FILE': 'logs/spider/weibo_stars/{date}.log'.format(date=date_str),
+        # 'LOG_LEVEL': 'DEBUG',
     }
     run_spider(WeiboStarsSpider, settings, None)

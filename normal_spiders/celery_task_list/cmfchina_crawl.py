@@ -13,8 +13,8 @@ def scrapy_crawl_cmfchina():
     logger.info('scrapy_crawl_cmfchina()')
     date_str = str(datetime.now().date())
     settings = {
-        'LOG_FILE': 'logs/spider/cmfchina/{date}.log'.format(date=date_str),
-        'LOG_LEVEL': 'DEBUG',
+        # 'LOG_FILE': 'logs/spider/cmfchina/{date}.log'.format(date=date_str),
+        # 'LOG_LEVEL': 'DEBUG',
     }
     beijing_datetime_now = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(timezone(timedelta(hours=8)))
     beijing_yesterday_str = (beijing_datetime_now.date() - timedelta(days=1)).strftime('%Y%m%d')
