@@ -7,22 +7,21 @@ from normal_spiders.celery_run_spider import run_spider
 from normal_spiders.spiders.cmfchina import CmfchinaSpider
 
 
-# 从银华基金网站上爬取数据
+# 从招商基金网站上爬取数据
 @celery_app.task
 def scrapy_crawl_cmfchina():
     logger.info('scrapy_crawl_cmfchina()')
-    date_str = str(datetime.now().date())
-    settings = {
-        # 'LOG_FILE': 'logs/spider/cmfchina/{date}.log'.format(date=date_str),
-        # 'LOG_LEVEL': 'DEBUG',
-    }
     beijing_datetime_now = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(timezone(timedelta(hours=8)))
     beijing_yesterday_str = (beijing_datetime_now.date() - timedelta(days=1)).strftime('%Y%m%d')
+
+    # 抓取招商安心收益
     kwargs = {
         'startTime': beijing_yesterday_str,
-        # 'startTime': '20010221',
         'endTime': beijing_yesterday_str,
-        # 'endTime': '20190321',
         'fundId': '217011',
     }
-    run_spider(CmfchinaSpider, settings, kwargs)
+    run_spider(CmfchinaSpider, {}, kwargs)
+
+    # 抓取招商双债增强LOF
+    kwargs['fundId'] = '161716'
+    run_spider(CmfchinaSpider, {}, kwargs)
