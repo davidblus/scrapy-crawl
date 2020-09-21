@@ -31,7 +31,7 @@ def scrapy_crawl_gyrx():
 
 if __name__ == '__main__':
     kwargs = {
-        'startTime': '20200101',
+        'startTime': '20200917',
         'endTime': '20200920',
         'fundId': '485111',
     }
