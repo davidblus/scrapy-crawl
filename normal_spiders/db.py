@@ -80,7 +80,7 @@ class WeiboStarsInfo(Base):
 
 
 # 初始化数据库连接:
-engine = create_engine(MYSQL_URL, encoding='utf-8', pool_recycle=3600)
+engine = create_engine(MYSQL_URL, pool_recycle=3600)
 # 创建DBSession类型:
 DBSession = sessionmaker(bind=engine)
 
